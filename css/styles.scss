@@ -2,13 +2,24 @@
 Variables
 --------------------------------------------------------------*/
 $primary-color: #ffb03b;
+$body-font-color: #444444;
+$link-hover-color: #ffc56e;
+$link-hover-dark-color: #ffa012;
+$header-footer-color: rgba(26, 24, 22, 0.8);
+$section-bg: white;
+$h2-color: #5f5950;
+$social-link-bg: #46423b;
+
+
+$body-font: "Poppins";
+$heading-font: "Satisfy";
 
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Poppins", sans-serif;
-  color: #444444;
+  font-family: $body-font, sans-serif;
+  color: $body-font-color;
 }
 
 a {
@@ -16,12 +27,12 @@ a {
 }
 
 a:hover {
-  color: #ffc56e;
+  color: $link-hover-color;
   text-decoration: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Satisfy", sans-serif;
+  font-family: $heading-font, sans-serif;
 }
 
 /*--------------------------------------------------------------
@@ -49,7 +60,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .back-to-top i:hover {
-  background: #ffa012;
+  background: $link-hover-dark-color;
   color: #fff;
 }
 
@@ -61,7 +72,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 15px;
   height: 50px;
   transition: all 0.5s;
-  background: rgba(26, 24, 22, 0.8);
+  background: $header-footer-color;
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -90,7 +101,7 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 997;
   transition: all 0.5s;
   padding: 10px 0;
-  background: rgba(26, 24, 22, 0.8);
+  background: $header-footer-color;
 }
 
 #header.header-transparent {
@@ -174,7 +185,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu .book-a-table a:hover {
-  background: #ffa012;
+  background: $link-hover-dark-color;
   color: #fff;
 }
 
@@ -326,7 +337,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .mobile-nav .book-a-table a:hover {
-  background: #ffa012;
+  background: $link-hover-dark-color;
   color: #fff;
 }
 
@@ -389,7 +400,7 @@ section {
 }
 
 .section-bg {
-  background-color: white;
+  background-color: $section-bg;
 }
 
 .section-title {
@@ -401,7 +412,7 @@ section {
   margin: 15px 0 0 0;
   font-size: 32px;
   font-weight: 700;
-  color: #5f5950;
+  color: $h2-color;
 }
 
 .section-title h2 span {
@@ -423,7 +434,8 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: #35322d;
+  //background: #35322d;
+  background: $header-footer-color;
   color: #fff;
   font-size: 14px;
   text-align: center;
@@ -453,7 +465,7 @@ section {
 #footer .social-links a {
   font-size: 18px;
   display: inline-block;
-  background: #46423b;
+  background: $social-link-bg;
   color: #fff;
   line-height: 1;
   padding: 8px 0;
@@ -476,3 +488,157 @@ section {
 #footer .credits {
   font-size: 13px;
 }
+
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+#hero {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(39, 37, 34, 0.8);
+  overflow: hidden;
+  padding: 0;
+}
+
+#hero .carousel-item {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#hero .carousel-item::before {
+  content: '';
+  background-color: rgba(12, 11, 10, 0.5);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+#hero .carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#hero .carousel-content {
+  text-align: center;
+}
+
+#hero h2 {
+  color: #fff;
+  margin-bottom: 30px;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+#hero h2 span {
+  color: #ffb03b;
+}
+
+#hero p {
+  width: 80%;
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+  margin: 0 auto 30px auto;
+  color: #fff;
+}
+
+#hero .carousel-inner .carousel-item {
+  transition-property: opacity;
+  background-position: center top;
+}
+
+#hero .carousel-inner .carousel-item,
+#hero .carousel-inner .active.carousel-item-left,
+#hero .carousel-inner .active.carousel-item-right {
+  opacity: 0;
+}
+
+#hero .carousel-inner .active,
+#hero .carousel-inner .carousel-item-next.carousel-item-left,
+#hero .carousel-inner .carousel-item-prev.carousel-item-right {
+  opacity: 1;
+  transition: 0.5s;
+}
+
+#hero .carousel-inner .carousel-item-next,
+#hero .carousel-inner .carousel-item-prev,
+#hero .carousel-inner .active.carousel-item-left,
+#hero .carousel-inner .active.carousel-item-right {
+  left: 0;
+  transform: translate3d(0, 0, 0);
+}
+
+#hero .carousel-control-prev, #hero .carousel-control-next {
+  width: 10%;
+  opacity: 1;
+}
+
+#hero .carousel-control-next-icon, #hero .carousel-control-prev-icon {
+  background: none;
+  font-size: 36px;
+  line-height: 1;
+  width: auto;
+  height: auto;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 10px;
+  transition: 0.3s;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+#hero .carousel-control-next-icon:hover, #hero .carousel-control-prev-icon:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+#hero .carousel-indicators li {
+  cursor: pointer;
+}
+
+#hero .btn-menu, #hero .btn-book {
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 50px;
+  transition: 0.5s;
+  line-height: 1;
+  margin: 0 10px;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+  color: #fff;
+  border: 2px solid #ffb03b;
+}
+
+#hero .btn-menu:hover, #hero .btn-book:hover {
+  background: #ffb03b;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  #hero h2 {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  #hero p {
+    width: 50%;
+  }
+  #hero .carousel-control-prev, #hero .carousel-control-next {
+    width: 5%;
+  }
+}
+
